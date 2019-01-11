@@ -1,0 +1,141 @@
+
+
+.outer {
+    width: 25%;
+    /* float: left; */
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+}
+.outer .input_picker {
+    /* text-align: center; */
+    position: relative;
+}
+.outer .input_picker .down_arrow{
+    position: absolute;
+    top: 4px;
+    left: 57%;
+    padding: 0;
+    cursor: pointer;
+}
+.outer .input_picker .down_arrow::after {
+    content: "\25BC";
+    font-size: 0.8rem;
+}
+.calender {
+    display: flex;
+    /* width: 30%; */
+    flex-direction: column;
+    font-variant: tabular-nums;
+    color: #314659;
+    outline: 0;
+    border: 1px solid #fff;
+    font-size: 0.9rem;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    background-clip: padding-box;
+    line-height: 1.5;
+    font-weight: bold;
+}
+.calender .header {
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.25);
+}
+.calender .header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+    
+}
+.calender .header ul li {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+.calender .day {
+    width:100%;
+}
+.calender .day ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+    /* color: rgba(0,0,0,.65); */
+    
+}
+.dates{
+    list-style: none;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    color: rgba(0,0,0,.50);
+}
+.dates .invisible {
+    background: transparent;
+    color: transparent;
+    visibility: hidden;
+}
+.dates .inactiveLink {
+    pointer-events: none;
+    cursor: default;
+ }
+ .outer .header .pre_year::after{
+     content:'<<';
+     cursor: pointer;
+ }
+ .outer .header .next_year::after{
+     cursor: pointer;
+     content:'>>';
+}
+.outer .header .pre_month::after{
+     cursor: pointer;
+     content:'<';
+}
+.outer .header .next_month::after{
+     cursor: pointer;
+     content:'>';
+}
+.pre_year,.next_month,.next_year,.pre_month{
+    color: rgba(0,0,0,.50);
+}
+.pre_year:hover,.next_month:hover,.next_year:hover,.pre_month:hover{
+    color: #40a9ff;
+}
+.outer .input_picker input {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 4px 11px;
+    font-size: 0.95rem;
+    color: rgba(0,0,0,.65);
+    background-color: #fff;
+    transition: all .3s;
+    
+}
+.dates li a{
+    text-decoration: none;
+}
+.dates li {
+    text-align: center;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+.dates li:hover{
+    /* background-color: #40a9ff; */
+    background: #40a9ff;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+ @media screen and  (max-width: 767px) {
+    .outer {
+        width: 100%;
+    }
+ }
+ 

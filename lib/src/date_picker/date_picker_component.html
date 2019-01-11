@@ -1,0 +1,43 @@
+<div class="outer">
+    <div class="input_picker">
+        <input [type]="isMobileDevice ? 'date' : 'text'" [(ngModel)]="selectedDate"
+         placeholder="Select date" [readonly]="!isMobileDevice" 
+         (change)="isMobileDevice ? setDate($event.target)  : ''"
+         (focus)="openModal=!openModal"  />
+    </div>
+
+    <div class="calender" *ngIf="!isMobileDevice && openModal">
+        <div class="header">
+            <ul>
+                <li style="text-align:left;">
+                    <span style="padding: 0 5px 0px 10px;" class="pre_year" (click)="prevYear()"></span>
+                    <span style="padding: 0 5px" class="pre_month" (click)="prevMonth(selectedMonth -1 )"></span>
+                </li>
+                <li>
+                    <label>{{ getMonth(selectedMonth) }} {{selectedYear}}</label>
+
+                </li>
+                <li style="text-align:right;">
+                    <span style="padding: 0 5px;" class="next_month" (click)="nextMonth(selectedMonth +1 )"></span>
+                    <span class="next_year" style="padding: 0 10px 0px 5px;" (click)="nextYear()"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="day">
+            <ul>
+                <li>Su</li>
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+            </ul>
+            <ul class="dates" *ngFor="let row of convertRowCountToArray(grid.length,7);let i=index">
+                <li *ngFor="let value of convertRowCountToArray(grid.length,6);let j=index" [class.inactiveLink]="grid[i*7+j]==-1" (click)="grid[i*7+j]==-1 ? null : dateSelected(selectedYear,selectedMonth,grid[i*7+j])">
+                        <span [class.invisible]="grid[i*7+j]==-1">{{ grid[i*7+j] }} </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

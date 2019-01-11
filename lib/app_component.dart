@@ -1,9 +1,17 @@
-import 'package:angular/angular.dart';
-
+import 'package:angular/angular.dart' show coreDirectives, Component;
+import 'package:angular_forms/angular_forms.dart';
+import 'src/date_picker/date_picker_component.dart';
 @Component(
   selector: 'my-app',
-  template: '<h1>Hello {{name}}</h1>',
+  templateUrl: 'app_component.html',
+  directives: [coreDirectives,formDirectives,DatePickerComponent],
+  styleUrls: ['./app_component.css'],
 )
 class AppComponent {
   var name = 'Angular';
+  var title = 'Hero App';
+  String date;
+  selectedDate(String d){
+    date = d;
+  }
 }
